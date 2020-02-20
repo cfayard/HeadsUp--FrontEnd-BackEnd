@@ -173,3 +173,8 @@ const mapStateToProps = state => ({
 });
 
 - This allows us to call this.props.auth or this.props.errors within our Register component.
+
+- Connecting components
+
+- Creating Dashboard
+ - user can only reach dashboard if successfully logged in
