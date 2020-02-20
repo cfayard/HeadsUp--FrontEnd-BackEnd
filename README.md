@@ -70,6 +70,13 @@ confirming passwords match)
 
 How to add package.json files to .gitignore?
  
+
+Open Postman and
+Set the request type to POST
+Set the request url to http://localhost:5000/api/users/register
+Navigate to the Body tab, select x-www-form-urlencoded, fill in your registration parameters and hit Send
+
+- sets up new user in our database with required credentials
  
 
 
