@@ -173,3 +173,12 @@ const mapStateToProps = state => ({
 });
 
 - This allows us to call this.props.auth or this.props.errors within our Register component.
+
+- Connecting components
+
+- Creating Dashboard
+ - user can only reach dashboard if successfully logged in
+
+- Tying it all together in App.js
+   - Check localStorage for a token to keep the user logged in even if they close or refresh the app (e.g. until they log out or the token expires)
+   - Pull in our Dashboard component and define it as a PrivateRoute
