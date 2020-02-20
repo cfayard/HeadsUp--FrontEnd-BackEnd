@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 
 const users = require("./routes/api/users");
+const plaid = require("./routes/api/plaid");
 
 const app = express();
 
