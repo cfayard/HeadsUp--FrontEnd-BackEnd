@@ -104,4 +104,9 @@ return (
     );
   }
 }
-export default Register;
+// export default Register;
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(withRouter(Register));

@@ -35,7 +35,7 @@ Preliminary Ideas for the site
 	Express account, I would like to be able to compare my manual entries with the 	
 	Data from each of my accounts. 
  
- 
+# Back-end
  
 1). Build Back-end
 - Initialize our backend using npm and install necessary packages
@@ -154,3 +154,11 @@ export default store;
    - import dependenciees and action definitiions from types.js
    - use axios to make http requests
    - use dispatch to send actions to our reducers
+
+# Linking Redux with our React components and using axios to fetch data from Server
+- Link Redux to our Components
+- Display errors from our backend in our React forms
+- create protected routes (pages only certain users can access based on their authentication)
+- keep a user looged when they refresh or leave the page (they either logged out or the jwt expires)
+
+- using connect()
