@@ -149,3 +149,8 @@ export default store;
    - import actions from types.js
    - define initialState
    - define how state should change based on actions with a switch statement.
+
+- Actions
+   - import dependenciees and action definitiions from types.js
+   - use axios to make http requests
+   - use dispatch to send actions to our reducers
