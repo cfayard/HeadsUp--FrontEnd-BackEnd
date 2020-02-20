@@ -192,3 +192,12 @@ const mapStateToProps = state => ({
 - We send our public token to our back-end server, exchanging it for an access token and item id (each bank account has a unique access token and item id)
 - We’ll save this access token, item id and a few other fields in our database (while checking for duplicate accounts)
 - We’ll send our access token, client id, and client secret to Plaid to get the user’s transactions
+
+# Adding Accounts
+
+Our flow for adding accounts will go as follows.
+
+Parse PUBLIC_TOKEN and other data from request
+Exchange PUBLIC_TOKEN for an ACCESS_TOKEN; we don’t need to save our PUBLIC_TOKEN in the database (expires after 30 minutes), but we will store the ACCESS_TOKEN so we can get transactions and other account-specific data
+Check if the account already exists for that specific user using userId and institutionId
+If the account doesn’t already exist, save it to our database

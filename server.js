@@ -40,6 +40,7 @@ mongoose
 
   // Routes
   app.use("/api/users", users);
+  app.use("/api/plaid", plaid);
 
   // Set the port for our server to run on and have our app listen on this port
 const port = process.env.PORT || 5001; // process.env.port is Heroku's port if you choose to deploy the app there
