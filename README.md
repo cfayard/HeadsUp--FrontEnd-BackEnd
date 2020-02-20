@@ -162,3 +162,14 @@ export default store;
 - keep a user looged when they refresh or leave the page (they either logged out or the jwt expires)
 
 - using connect()
+- Used withRouter from react-router-dom, wrapping our component in our export withRouter()
+- Will add a parameter to this.props.history within our call to this.props.registerUser(newUser, this.props.history) in our onSubmit event so we can easily access it within our action
+- mapStateToProps allows us to get our state from Redux and map it to props which we can use inside components.
+
+- We’ll add the following above our export at the bottom of Register.js.
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+- This allows us to call this.props.auth or this.props.errors within our Register component.
