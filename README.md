@@ -1,68 +1,71 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React-Budget-App
+ 
+- Digital Crafts November 2019 Cohort
+ 
+- Individual React Project
+   - Project Requirements
+       - No teams
+       - Redux is optional
+       - At least 5 components
+       - At least 3 piecs of state
+       - At least 1 API
+ 
+- For this project, the first thing I researched was API's.
+   - I chose the PLAID API (insert link here)
+   - In PLAID's own words "The easiest way for users to connect their bank accounts to 
+an app"
+   - I wanted something that would really help me learn and enforce the concepts we 
+went over in class.
+   - And that would take me out of my comfort zone
+   - PLAID's API documentation is easy to understand, and they make it really easy to 
+connect to and use their service.
+ 
+- After setting up a demo app, and successfully retrieving data from the API, I’ve 
+decided to use the transaction history data from mock bank accounts to create a 
+budget app.
+ 
+Preliminary Ideas for the site
+- Making it look as secure as possible
+- Creating MERN stack to Authenticate User
+- Securely storing sensitive data
+- If the user is logged in, they will have access to things they otherwise wouldn’t.
+- Need Dashboard
+- Once logged in, use PLAID Link to securely connect financial institutions
+- Using the transaction data from all of our combined bank accounts and American 	
+	Express account, I would like to be able to compare my manual entries with the 	
+	Data from each of my accounts. 
+ 
+ 
+ 
+1). Build Back-end
+- Initialize our backend using npm and install necessary packages
+- Set up a MongoDB database using MongoDB Atlas
+- Set up a server with Node.js and Express
+- Create a database schema to define a User for registration and login purposes
+- Set up two API routes, register and login, using passport + jsonwebtokens for
+- authentication and validator for input validation
+- Test our API routes using Postman
+ 
+- Packages to Install:
 
-## Available Scripts
+bcryptjs: used to hash passwords before we store them in our database
+body-parser: used to parse incoming request bodies in a middleware
+concurrently: allows us to run our backend and frontend concurrently and on 
+different ports
+express: sits on top of Node to make the routing, request handling, and 
+responding easier to write
+is-empty: a global function that will come in handy when we use validator
+jsonwebtoken: used for authorization
+mongoose: used to interact with MongoDB
+passport: used to authenticate requests, which it does through an extensible 
+set of plugins known as strategies
+passport-jwt: passport strategy for authenticating with a JSON Web Token (JWT); 
+lets you authenticate endpoints using a JWT
+validator: used to validate inputs (e.g. check for valid email format, 
+confirming passwords match)
+ 
+ 
+ 
+ 
+ 
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
