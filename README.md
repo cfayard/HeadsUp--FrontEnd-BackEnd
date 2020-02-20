@@ -103,4 +103,10 @@ redux: used to manage state between components (can be used with React or any ot
 redux-thunk: middleware for Redux that allows us to directly access the dispatch method to make asynchronous calls from our actions
  
 
+- created static components
+   - Navbar - Landing - Register - Login
 
+- Use react-router-dom in App.js to setup routes
+- linking pages to App.js
+
+- Setting up Redux for state management
