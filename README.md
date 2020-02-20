@@ -65,8 +65,11 @@ validator: used to validate inputs (e.g. check for valid email format,
 confirming passwords match)
  
  
- 
+ - *** Command to remove file from repository but keep it locally
+    git rm --cached somefile.ext
+
+How to add package.json files to .gitignore?
  
  
 
-# budget-app
+
