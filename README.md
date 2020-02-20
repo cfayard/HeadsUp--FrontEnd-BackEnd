@@ -110,3 +110,42 @@ redux-thunk: middleware for Redux that allows us to directly access the dispatch
 - linking pages to App.js
 
 - Setting up Redux for state management
+   - import { Provider } from "react-redux";
+   - import store from "./store";
+   - wrap with <Provider>
+   -       <Provider store={store}>
+        <Router>
+          <div className="App">
+            <Navbar />
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+          </div>
+        </Router>
+      </Provider>
+   
+- Setup Redux file structure
+   - create store.js file
+
+- Made directories for actions and reducers
+
+- store.js
+
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+const initialState = {};
+const middleware = [thunk];
+const store = createStore(
+  () => [],
+  initialState,
+  compose(
+    applyMiddleware(...middleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+);
+export default store;
+
+- REDUCERS
+   - import actions from types.js
+   - define initialState
+   - define how state should change based on actions with a switch statement.
