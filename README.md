@@ -182,3 +182,13 @@ const mapStateToProps = state => ({
 - Tying it all together in App.js
    - Check localStorage for a token to keep the user logged in even if they close or refresh the app (e.g. until they log out or the token expires)
    - Pull in our Dashboard component and define it as a PrivateRoute
+
+
+# Bringing in PLAID API
+
+- We’ll be using Plaid to allow users to link their accounts and to gain access to their transactional data.
+- User links a bank account within app, causing our app’s public key to be sent to Plaid
+- Plaid responds with a public token, which is unique for each sign in and expires in 30 minutes
+- We send our public token to our back-end server, exchanging it for an access token and item id (each bank account has a unique access token and item id)
+- We’ll save this access token, item id and a few other fields in our database (while checking for duplicate accounts)
+- We’ll send our access token, client id, and client secret to Plaid to get the user’s transactions
