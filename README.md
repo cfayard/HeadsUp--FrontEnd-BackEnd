@@ -77,6 +77,30 @@ Set the request url to http://localhost:5000/api/users/register
 Navigate to the Body tab, select x-www-form-urlencoded, fill in your registration parameters and hit Send
 
 - sets up new user in our database with required credentials
+
+- Testing our Login endpoint
+Similar to the above, in Postman
+Set the request type to POST
+Set the request url to http://localhost:5000/api/users/login
+Navigate to the Body tab, select x-www-form-urlencoded, fill in your login parameters and hit Send
+
+
+# Front-End
+- Set up our frontend using create-react-app
+- create static components for Navbar, Landing, Login, and Register pages
+- Setup Redux for global state management
+
+- install dependencies
+   
+   npm i axios classnames jwt-decode react-redux react-router-dom redux redux-thunk
+
+axios: promise based HTTP client for making requests to our backend
+classnames: used for conditional classes in our JSX
+jwt-decode: used to decode our jwt so we can get user data from it
+react-redux: allows us to use Redux with React
+react-router-dom: used for routing purposes
+redux: used to manage state between components (can be used with React or any other view library)
+redux-thunk: middleware for Redux that allows us to directly access the dispatch method to make asynchronous calls from our actions
  
 
 
