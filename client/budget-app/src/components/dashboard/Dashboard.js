@@ -68,6 +68,11 @@ if (accounts === null || accountsLoading) {
             >
               Logout
             </button>
+            <button>
+              <a href="/Budget">
+                  budget page
+              </a>
+            </button>
           </div>
         </div>
       );
