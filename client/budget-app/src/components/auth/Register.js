@@ -3,7 +3,8 @@ import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
-import classnames from "classnames"
+import classnames from "classnames";
+
 class Register extends Component {
   constructor() {
     super();
@@ -23,34 +24,35 @@ class Register extends Component {
     }
   }
 
-componentWillReceiveProps(nextProps) {
-  if (nextProps.errors) {
-    this.setState({
-      errors: nextProps.errors
-    });
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({
+        errors: nextProps.errors
+      });
+    }
   }
-}
 
-onChange = e => {
+  onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
 
-onSubmit = e => {
+  onSubmit = e => {
     e.preventDefault();
-    
-const newUser = {
+
+    const newUser = {
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2
     };
 
-this.props.registerUser(newUser, this.props.history);
+    this.props.registerUser(newUser, this.props.history);
   };
 
-render() {
+  render() {
     const { errors } = this.state;
-return (
+
+    return (
       <div className="container">
         <div className="row">
           <div className="col s8 offset-s2">
@@ -63,7 +65,7 @@ return (
                 <b>Register</b> below
               </h4>
               <p className="grey-text text-darken-1">
-                Already have an account? <Link style={{color: 'red'}} to="/login">Log in</Link>
+                Already have an account? <Link to="/login">Log in</Link>
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
@@ -78,7 +80,7 @@ return (
                     invalid: errors.name
                   })}
                 />
-                <label  htmlFor="name">Name</label>
+                <label htmlFor="name">Name</label>
                 <span className="red-text">{errors.name}</span>
               </div>
               <div className="input-field col s12">
@@ -132,7 +134,7 @@ return (
                     marginTop: "1rem"
                   }}
                   type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable red accent-3"
+                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
                 >
                   Sign up
                 </button>
@@ -144,14 +146,12 @@ return (
     );
   }
 }
-// export default Register;
 
 Register.propTypes = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
-
 
 const mapStateToProps = state => ({
   auth: state.auth,

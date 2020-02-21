@@ -8,6 +8,9 @@
 *.package-lock.json
 *.package.json
 
+# api keys
+.env
+/routes
 
 # testing
 /coverage

@@ -1,19 +1,30 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import credit_card from "../../img/credit_card.png";
 class Landing extends Component {
-  render() {
+  componentDidMount() {
+    // If logged in, should redirect them to dashboard
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+  }
+render() {
     return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
-            <h4>
-              <b>Budget</b> All of your transaction history conveniently located in one place
-                   
-              <span style={{ fontFamily: "monospace" }}></span> 
+            <img
+              src={credit_card}
+              style={{ width: "350px" }}
+              className="responsive-img credit-card"
+              alt="Undraw"
+            />
+            <h4 className="flow-text">
+              <b>Build</b> a personal banking web app with Plaid and the{" "}
+              <span style={{ fontFamily: "monospace" }}>MERN</span> stack
             </h4>
-            <p className="flow-text grey-text text-darken-1">
-            Control your finances, don't let your finances control you...
-            </p>
             <br />
             <div className="col s6">
               <Link
@@ -23,7 +34,7 @@ class Landing extends Component {
                   borderRadius: "3px",
                   letterSpacing: "1.5px"
                 }}
-                className="btn btn-large waves-effect waves-light hoverable red accent-3"
+                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
               >
                 Register
               </Link>
@@ -47,4 +58,10 @@ class Landing extends Component {
     );
   }
 }
-export default Landing;
+Landing.propTypes = {
+  auth: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+export default connect(mapStateToProps)(Landing);
