@@ -51,8 +51,8 @@ if (accounts === null || accountsLoading) {
                     "btn btn-large waves-effect waves-light hoverable blue accent-3 main-btn"
                 }}
                 plaidLinkProps={{
-                  clientName: "YOUR_APP_NAME",
-                  key: "YOUR_PLAID_PUBLIC_KEY",
+                  clientName: "budget-app",
+                  key: "065559fb6c1b46df796add99014df6",
                   env: "sandbox",
                   product: ["transactions"],
                   onSuccess: this.handleOnSuccess
