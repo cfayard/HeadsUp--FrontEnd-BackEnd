@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 /config
-
+*.Accounts.js
 
 # testing
 /coverage

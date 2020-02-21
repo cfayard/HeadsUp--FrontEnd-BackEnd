@@ -4,7 +4,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { getAccounts, addAccount } from "../../actions/accountActions";
+
 import Accounts from "./Accounts";
+import Spinner from "./Spinner";
 class Dashboard extends Component {
   componentDidMount() {
     this.props.getAccounts();
@@ -27,7 +29,7 @@ render() {
     const { accounts, accountsLoading } = this.props.plaid;
 let dashboardContent;
 if (accounts === null || accountsLoading) {
-      dashboardContent = <p className="center-align">Loading...</p>;
+      dashboardContent = <Spinner />
     } else if (accounts.length > 0) {
       // User has accounts linked
       dashboardContent = <Accounts user={user} accounts={accounts} />;
@@ -49,8 +51,8 @@ if (accounts === null || accountsLoading) {
                     "btn btn-large waves-effect waves-light hoverable blue accent-3 main-btn"
                 }}
                 plaidLinkProps={{
-                  clientName: "Budget-App",
-                  key: "c3d4359494f762298793738f10eda6",
+                  clientName: "YOUR_APP_NAME",
+                  key: "YOUR_PLAID_PUBLIC_KEY",
                   env: "sandbox",
                   product: ["transactions"],
                   onSuccess: this.handleOnSuccess
