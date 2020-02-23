@@ -1,11 +1,20 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+
 class Navbar extends Component {
   render() {
     return (
-      <div className="navbar-fixed">
-        <nav className="z-depth-0">
-          <div className="nav-wrapper white">
+      <div  >
+        <nav style={{
+        backgroundColor: "black",
+        fontFamily: "georgia",
+        color: "green"
+      }}  >
+          <div style={{
+        
+        fontFamily: "georgia",
+        color: "green"
+      }} >
             <Link
               to="/"
               style={{
@@ -13,12 +22,20 @@ class Navbar extends Component {
               }}
               className="col s5 brand-logo center black-text"
             >
-              <i className="material-icons">x</i>
-              Heads Up 📈
+              <header style={{
+                
+                color: "springgreen"
+              }}
+              >
+                Head's Up</header>
+              
+
             </Link>
+            <iframe src="https://giphy.com/embed/26n3JcZS59xgsKXkI" width="100" height="100"  frameBorder="0"  ></iframe> 
           </div>
         </nav>
       </div>
+      
     );
   }
 }

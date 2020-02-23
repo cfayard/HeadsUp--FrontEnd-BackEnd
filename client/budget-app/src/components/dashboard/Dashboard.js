@@ -22,12 +22,16 @@ class Dashboard extends Component {
       public_token: token,
       metadata: metadata
     };
+
 this.props.addAccount(plaidData);
   };
+
 render() {
     const { user } = this.props.auth;
     const { accounts, accountsLoading } = this.props.plaid;
+
 let dashboardContent;
+
 if (accounts === null || accountsLoading) {
       dashboardContent = <Spinner />
     } else if (accounts.length > 0) {
@@ -44,11 +48,12 @@ if (accounts === null || accountsLoading) {
             <p className="flow-text grey-text text-darken-1">
               To get started, link your first bank account below
             </p>
-            <div>
-              <PlaidLinkButton
+            <useLayoutEffect>
+              <PlaidLinkButton 
                 buttonProps={{
+
                   className:
-                    "btn btn-large waves-effect waves-light hoverable blue accent-3 main-btn"
+                    "btn btn-large waves-effect waves-light hoverable grey accent-3 main-btn",
                 }}
                 plaidLinkProps={{
                   clientName: "budget-app",
@@ -58,18 +63,24 @@ if (accounts === null || accountsLoading) {
                   onSuccess: this.handleOnSuccess
                 }}
                 onScriptLoad={() => this.setState({ loaded: true })}
+
               >
                 Link Account
               </PlaidLinkButton>
-            </div>
+            </useLayoutEffect>
             <button
               onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable red accent-3 main-btn"
+              className="btn btn-large waves-effect waves-light hoverable green accent-3 main-btn"
+              style={{color: 'black', marginRight: 10, marginLeft: 10}}
             >
               Logout
             </button>
-            <button>
-              <a href="/Budget">
+            <button
+            className="btn btn-large waves-effect waves-light hoverable red accent-3 main-btn"
+            >
+              <a style={{
+                color: "black"
+              }}href="/Budget">
                   budget page
               </a>
             </button>

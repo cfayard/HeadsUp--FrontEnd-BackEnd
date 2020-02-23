@@ -1,3 +1,13 @@
+* {
+  background-color: black;
+  color: springgreen;
+
+}
+
+.header {
+  background-color: chartreuse;
+  }
+
 .main-btn {
   width: 185px;
   letter-spacing: 1.5px;
@@ -10,6 +20,7 @@
 .credit-card {
   animation: float 3s ease-in-out infinite;
 }
+
 @keyframes float {
   0% {
     transform: translatey(0px);

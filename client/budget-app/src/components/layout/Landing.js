@@ -22,8 +22,10 @@ render() {
               alt="Undraw"
             />
             <h4 className="flow-text">
-              <b>Build</b> a personal banking web app with Plaid and the{" "}
-              <span style={{ fontFamily: "monospace" }}>MERN</span> stack
+               <p style={{
+                color: "silver"
+              }}> a personal budgeting app to help you stay on top of your finances.</p>
+              <span style={{ fontFamily: "monospace" }}></span> 
             </h4>
             <br />
             <div className="col s6">
@@ -32,9 +34,10 @@ render() {
                 style={{
                   width: "140px",
                   borderRadius: "3px",
-                  letterSpacing: "1.5px"
+                  letterSpacing: "1.5px",
+                  color: "black"
                 }}
-                className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                className="btn btn-large waves-effect waves-light hoverable green accent-3"
               >
                 Register
               </Link>

@@ -60,7 +60,7 @@ return (
                 <b>Login</b> below
               </h4>
               <p className="grey-text text-darken-1">
-                Don't have an account? <Link style={{ color: 'red'}} to="/register">Register</Link>
+                Don't have an account? <Link style={{ color: 'white'}} to="/register">Register</Link>
               </p>
             </div>
             <form noValidate onSubmit={this.onSubmit}>
@@ -107,7 +107,7 @@ return (
                     marginTop: "1rem"
                   }}
                   type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable red accent-3"
+                  className="btn btn-large waves-effect waves-light hoverable green accent-3"
                 >
                   Login
                 </button>

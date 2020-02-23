@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import PlaidLinkButton from "react-plaid-link-button";
 import { connect } from "react-redux";
+
 import {
   getTransactions,
   addAccount,
   deleteAccount
 } from "../../actions/accountActions";
+
 import { logoutUser } from "../../actions/authActions";
+
 import MaterialTable from "material-table"; // https://mbrn.github.io/material-table/#/
 class Accounts extends Component {
   componentDidMount() {
@@ -41,6 +44,7 @@ this.props.addAccount(plaidData);
 render() {
     const { user, accounts } = this.props;
     const { transactions, transactionsLoading } = this.props.plaid;
+
 let accountItems = accounts.map(account => (
       <li key={account._id} style={{ marginTop: "1rem" }}>
         <button
@@ -75,6 +79,7 @@ let transactionsData = [];
     });
 return (
       <div className="row">
+       
         <div className="col s12">
           <button
             onClick={this.onLogoutClick}
@@ -82,6 +87,14 @@ return (
           >
             <i className="material-icons left">keyboard_backspace</i> Log Out
           </button>
+          <a href='/Budget'>
+          <button
+            
+            className="btn-flat waves-effect"
+          >
+            <i className="material-icons left"></i> Budget
+          </button>
+          </a>
           <h4>
             <b>Welcome!</b>
           </h4>
@@ -98,8 +111,9 @@ return (
           <PlaidLinkButton
             buttonProps={{
               className:
-                "btn btn-large waves-effect waves-light hoverable blue accent-3 main-btn"
+                "btn btn-large waves-effect waves-light hoverable green accent-3 main-btn"
             }}
+            
             plaidLinkProps={{
               clientName: "Budget-App",
               key: "c3d4359494f762298793738f10eda6",
@@ -108,6 +122,7 @@ return (
               onSuccess: this.handleOnSuccess
             }}
             onScriptLoad={() => this.setState({ loaded: true })}
+           
           >
             Add Account
           </PlaidLinkButton>
@@ -119,17 +134,23 @@ return (
             <p className="grey-text text-darken-1">Fetching transactions...</p>
           ) : (
             <>
-              <p className="grey-text text-darken-1">
-                You have <b>{transactionsData.length}</b> transactions from your
+              <p style={{
+                color: 'white'
+              }} className="grey-text text-darken-1">
+                You have <b  style={{
+                  color: "white",
+                  backgroundColor: "green"
+                }}>{transactionsData.length}</b> transactions from your
                 <b> {accounts.length}</b> linked
                 {accounts.length > 1 ? (
                   <span> accounts </span>
                 ) : (
-                  <span> account </span>
+                  <span> accounts </span>
                 )}
-                from the past 30 days
+                from the past 90 days
               </p>
               <MaterialTable
+               
                 columns={transactionsColumns}
                 data={transactionsData}
                 title="Search Transactions"
