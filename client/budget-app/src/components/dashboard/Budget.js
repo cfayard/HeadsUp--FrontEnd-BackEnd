@@ -11,6 +11,7 @@ import {
   import { logoutUser } from "../../actions/authActions";
 
 
+import Visual from '../dashboard/Visual'
 
 
 
@@ -40,6 +41,7 @@ const Budget = props => {
     const [totalLeisure, setTotalLeisure] = useState(0)
     const [totalFood, setTotalFood] = useState(0)
     const [totalEmergency, setTotalEmergency] = useState(0)
+    const [totalGas, setTotalGas] = useState(0)
 
     const [budgetCalc, setBudgetCalc] = useState([])
 
@@ -52,6 +54,7 @@ const Budget = props => {
                 }}>
                     If your anything like me, you need to budget....👇
                 </h1>
+                
                 <a href="/Dashboard">
                     <button style={{color:'black', marginLeft:10,marginRight:10}} className="btn btn-large waves-effect waves-light hoverable green accent-3 main-btn">
                         Linked Accounts
@@ -60,23 +63,28 @@ const Budget = props => {
                 <button style={{color:'black', marginLeft:10,marginRight:10}}className="btn btn-large waves-effect waves-light hoverable green accent-3 main-btn" onClick={()=> setOpen(!open)}>
                     Projected Budget
                 </button>
+                <a href='/Visual'>
                 <button style={{color:'black', marginLeft:10,marginRight:10}}className="btn btn-large waves-effect waves-light hoverable green accent-3 main-btn" onClick={()=> setOpen(!open)}>
-                    Actual Budget
+                    Visual
                 </button>
-                <button style={{color:'black', marginLeft:10,marginRight:10}}className="btn btn-large waves-effect waves-light hoverable green accent-3 main-btn" onClick={()=> setOpen(!open)}>
+                </a>
+                {/* <button style={{color:'black', marginLeft:10,marginRight:10}}className="btn btn-large waves-effect waves-light hoverable green accent-3 main-btn" onClick={()=> setOpen(!open)}>
                     Dashboard
-                </button>
-                <button style={{color:'black', marginLeft:10,marginRight:10}}className="btn btn-large waves-effect waves-light hoverable green accent-3 main-btn"
-                onClick=
-                    {console.log('truth')}
-                >
+                </button> */}
+                <a href='/Register'>
+                    
+                <button style={{color:'springgreen', marginLeft:10,marginRight:10}}>
                     Logout
-                </button>
+                </button></a>
+
+
+                <Visual />
 
                 <Modal 
                 className={classes.modal}     
                 open={open} 
                 >
+                    
                     <div style={{width:600,height:500, backgroundColor:'black'}}>
                         <div onClick={()=>setOpen(!open)}>X</div>
                         <InputLabel style={{
@@ -88,12 +96,12 @@ const Budget = props => {
                             style={{color: 'white'}}
                             onChange={(val)=>setTotalIncome(val.target.value)}
                         />
-                        {totalIncome}
+                        {totalIncome-totalBill-totalExpense-totalSavings-totalLeisure-totalFood-totalEmergency-totalGas}
                         <br />
                         <InputLabel style={{
                             color: "springgreen"
                         }}>
-                        Total Bill:
+                        Total Bills:
                         </InputLabel>
                         <Input 
                         style={{color: 'white'}}
@@ -104,13 +112,13 @@ const Budget = props => {
                         <InputLabel style={{
                             color: "springgreen"
                         }}>
-                        Total Expense:
+                        Total Expenses:
                         </InputLabel>
                         <Input 
                         style={{color: 'white'}}
                             onChange={(val)=>setTotalExpense(val.target.value)}
                         />
-                        {totalExpense}
+                        {totalIncome-totalBill-totalExpense}
                         <br />
                         <InputLabel style={{
                             color: "springgreen"
@@ -121,7 +129,9 @@ const Budget = props => {
                         style={{color: 'white'}}
                             onChange={(val)=>setTotalSavings(val.target.value)}
                         />
-                        {(totalSavings/100)*totalIncome}
+                        {/* {(totalSavings/100)*totalIncome} */}
+                        {totalIncome-totalBill-totalExpense-totalSavings}
+
                         <br />
                         <InputLabel style={{
                             color: "springgreen"
@@ -132,18 +142,18 @@ const Budget = props => {
                         style={{color: 'white'}}
                             onChange={(val)=>setTotalLeisure(val.target.value)}
                         />
-                        {totalLeisure}
+                        {totalIncome-totalBill-totalExpense-totalSavings-totalLeisure}
                         <br />
                         <InputLabel style={{
                             color: "springgreen"
                         }}>
-                        Total Food:
+                        Total Grocery:
                         </InputLabel>
                         <Input 
                         style={{color: 'white'}}
                             onChange={(val)=>setTotalFood(val.target.value)}
                         />
-                        {totalFood}
+                        {totalIncome-totalBill-totalExpense-totalSavings-totalLeisure-totalFood}
                         <br />
                         <InputLabel style={{
                             color: "springgreen"
@@ -154,14 +164,34 @@ const Budget = props => {
                         style={{color: 'white'}}
                             onChange={(val)=>setTotalEmergency(val.target.value)}
                         />
-                        {totalEmergency}
+                        {totalIncome-totalBill-totalExpense-totalSavings-totalLeisure-totalFood-totalEmergency}
+                        <br />
+                        <InputLabel style={{
+                            color: "springgreen"
+                        }}>
+                        Total Gas:
+                        </InputLabel>
+                        <Input 
+                        style={{color: 'white'}}
+                            onChange={(val)=>setTotalGas(val.target.value)}
+                        />
+                        {totalIncome-totalBill-totalExpense-totalSavings-totalLeisure-totalFood-totalEmergency-totalGas}
+                        <br />
+                        <InputLabel style={{
+                            color: "springgreen"
+                        }}> <div style={{color:'white'}}>
+                            Total Remaining:
+                            <h4 style={{color:'red'}}>{totalIncome-totalBill-totalExpense-totalSavings-totalLeisure-totalFood-totalEmergency-totalGas}</h4> </div>
+                        </InputLabel>
+                        
                         <br />
                     </div>
-
                     
+                    
+                     
                 </Modal>
 
-
+                
             </div>
             
         )
