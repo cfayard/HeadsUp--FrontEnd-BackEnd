@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
-import {Bar, Line, Pie} from 'react-chartjs-2'
-import Budget from '../components/dashboard/Budget'
+import {Bar} from 'react-chartjs-2'
 
 // let totalExpenses = this.state.chartData.data[0]+this.state.chartData.data[1]+this.state.chartData.data[2]+this.state.chartData.data[3]+this.state.chartData.data[4]+this.state.chartData.data[5]+this.state.chartData.data[6]
 

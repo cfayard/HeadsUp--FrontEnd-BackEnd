@@ -31,7 +31,7 @@ class Navbar extends Component {
               
 
             </Link>
-            <iframe src="https://giphy.com/embed/26n3JcZS59xgsKXkI" width="100" height="100"  frameBorder="0"  ></iframe> 
+            <iframe src="https://giphy.com/embed/26n3JcZS59xgsKXkI" width="100" height="100"  frameBorder="0" title="giph"  ></iframe> 
           </div>
         </nav>
       </div>

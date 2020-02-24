@@ -1,8 +1,7 @@
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import Modal from '@material-ui/core/Modal';
-import { Button, Input, InputLabel } from '@material-ui/core';
+import { Input, InputLabel } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {
     getTransactions,
@@ -10,9 +9,8 @@ import {
   } from "../../actions/accountActions";
   import { logoutUser } from "../../actions/authActions";
 
-  import {Bar, Line, Pie} from 'react-chartjs-2'
+  import {Bar, Pie} from 'react-chartjs-2'
 
-import Visual from '../dashboard/Visual'
 
 
 
