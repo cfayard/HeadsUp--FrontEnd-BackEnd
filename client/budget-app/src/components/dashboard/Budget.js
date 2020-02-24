@@ -192,13 +192,45 @@ const Budget = props => {
                     </div>
                     
                    <div style={{width:'70%',paddingTop:'100px'}}>
-                    <Pie 
+                   <Pie
+                   
+                   data={{
+                       labels: ['Bills', 'Expenses', 'Savings', 'Gas', 'Leisure','Grocery', 'Emergency'],
+                       datasets:[
+                           {
+                               label: 'Percent',
+                               data: [
+                                   (totalBill/totalIncome)*0.10 * 100,
+                                   (totalExpense/totalIncome)*0.10 * 100,
+                                   (totalSavings/totalIncome)*0.10 * 100,
+                                   (totalGas/totalIncome)*0.10*100,
+                                  (totalLeisure/totalIncome)*0.10*100,
+                                   (totalFood/totalIncome)*0.10*100,
+                                   (totalEmergency/totalIncome)*0.10*100,
+                                //    (totalIncome-totalBill-totalExpense-totalSavings-totalLeisure-totalFood-totalEmergency-totalGas),
+                               ],
+                               backgroundColor:[
+                                'lime',
+                                'orange',
+                                'blue',
+                                'yellow',
+                                'purple',
+                                'aqua',
+                                'springgreen'
+                               ]
+                           }
+                       ]
+                   }}
+                   />
+                   <br />
+                   
+                    <Bar 
                    
                     data={{
                         labels: ['Bills', 'Expenses', 'Savings', 'Gas', 'Leisure','Grocery', 'Emergency','Remaining'],
                         datasets:[
                             {
-                                label: 'Amounts',
+                                label: 'Total',
                                 data: [
                                     totalBill,
                                     totalExpense,
@@ -208,6 +240,7 @@ const Budget = props => {
                                     totalFood,
                                     totalEmergency,
                                     (totalIncome-totalBill-totalExpense-totalSavings-totalLeisure-totalFood-totalEmergency-totalGas),
+                                    
                                 ],
                                 backgroundColor:[
                                     'lime',
@@ -224,36 +257,7 @@ const Budget = props => {
                     }}
                     />
                     <div>
-                    <Bar
-                   
-                   data={{
-                       labels: ['Bills', 'Expenses', 'Savings', 'Gas', 'Leisure','Grocery', 'Emergency'],
-                       datasets:[
-                           {
-                               label: '',
-                               data: [
-                                   (totalBill/totalIncome)*0.10,
-                                   (totalExpense/totalIncome)*0.10,
-                                   (totalSavings/totalIncome)*0.10,
-                                   (totalGas/totalIncome)*0.10,
-                                   (totalLeisure/totalIncome)*0.10,
-                                   (totalFood/totalIncome)*0.10,
-                                   (totalEmergency/totalIncome)*0.10,
-                                //    (totalIncome-totalBill-totalExpense-totalSavings-totalLeisure-totalFood-totalEmergency-totalGas),
-                               ],
-                               backgroundColor:[
-                                'lime',
-                                'orange',
-                                'blue',
-                                'yellow',
-                                'purple',
-                                'aqua',
-                                'springgreen'
-                               ]
-                           }
-                       ]
-                   }}
-                   />
+                    
                    </div>
                     </div>
                     </div>
