@@ -12,6 +12,17 @@ import {
 import { logoutUser } from "../../actions/authActions";
 
 import MaterialTable from "material-table"; // https://mbrn.github.io/material-table/#/
+
+import { css } from "emotion"
+ 
+const tableStyle = {
+    ".table-div": {
+        backgroundColor: "grey"
+    },
+    ".table-cell": {
+        padding: "0px"
+    }}
+
 class Accounts extends Component {
   componentDidMount() {
     const { accounts } = this.props;
@@ -150,7 +161,7 @@ return (
                 from the past 90 days
               </p>
               <MaterialTable
-               
+              className={css(tableStyle)}
                 columns={transactionsColumns}
                 data={transactionsData}
                 title="Search Transactions"

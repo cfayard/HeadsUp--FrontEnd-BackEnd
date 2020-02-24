@@ -139,6 +139,17 @@ const Budget = props => {
                         <InputLabel style={{
                             color: "springgreen"
                         }}>
+                        Total Gas:
+                        </InputLabel>
+                        <Input 
+                        style={{color: 'white'}}
+                            onChange={(val)=>setTotalGas(val.target.value)}
+                        />
+                        {totalIncome-totalBill-totalExpense-totalSavings-totalLeisure-totalFood-totalEmergency-totalGas}
+                        <br />
+                        <InputLabel style={{
+                            color: "springgreen"
+                        }}>
                         Total Leisure:
                         </InputLabel>
                         <Input 
@@ -169,17 +180,7 @@ const Budget = props => {
                         />
                         {totalIncome-totalBill-totalExpense-totalSavings-totalLeisure-totalFood-totalEmergency}
                         <br />
-                        <InputLabel style={{
-                            color: "springgreen"
-                        }}>
-                        Total Gas:
-                        </InputLabel>
-                        <Input 
-                        style={{color: 'white'}}
-                            onChange={(val)=>setTotalGas(val.target.value)}
-                        />
-                        {totalIncome-totalBill-totalExpense-totalSavings-totalLeisure-totalFood-totalEmergency-totalGas}
-                        <br />
+                        
                         <InputLabel style={{
                             color: "springgreen"
                         }}> <div style={{color:'white'}}>
@@ -209,19 +210,51 @@ const Budget = props => {
                                     (totalIncome-totalBill-totalExpense-totalSavings-totalLeisure-totalFood-totalEmergency-totalGas),
                                 ],
                                 backgroundColor:[
-                                    'springgreen',
-                                    'green',
-                                    'darkgreen',
-                                    'chartruese',
-                                    'lightgreen',
-                                    'aqua',
+                                    'lime',
+                                    'orange',
                                     'blue',
+                                    'yellow',
+                                    'purple',
+                                    'aqua',
+                                    'springgreen',
                                     'red'
                                 ]
                             }
                         ]
                     }}
                     />
+                    <div>
+                    <Bar
+                   
+                   data={{
+                       labels: ['Bills', 'Expenses', 'Savings', 'Gas', 'Leisure','Grocery', 'Emergency'],
+                       datasets:[
+                           {
+                               label: 'Percents',
+                               data: [
+                                   (totalBill/totalIncome)*0.10,
+                                   (totalExpense/totalIncome)*0.10,
+                                   (totalSavings/totalIncome)*0.10,
+                                   (totalGas/totalIncome)*0.10,
+                                   (totalLeisure/totalIncome)*0.10,
+                                   (totalFood/totalIncome)*0.10,
+                                   (totalEmergency/totalIncome)*0.10,
+                                //    (totalIncome-totalBill-totalExpense-totalSavings-totalLeisure-totalFood-totalEmergency-totalGas),
+                               ],
+                               backgroundColor:[
+                                'lime',
+                                'orange',
+                                'blue',
+                                'yellow',
+                                'purple',
+                                'aqua',
+                                'springgreen'
+                               ]
+                           }
+                       ]
+                   }}
+                   />
+                   </div>
                     </div>
                     </div>
                     </div>
