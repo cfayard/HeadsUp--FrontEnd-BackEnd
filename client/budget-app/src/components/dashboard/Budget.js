@@ -78,7 +78,6 @@ const Budget = props => {
                 </button></a>
 
 
-                <Visual />
 
                 <Modal 
                 className={classes.modal}     

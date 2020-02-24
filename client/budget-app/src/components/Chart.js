@@ -1,5 +1,10 @@
 import React, {Component} from 'react'
 import {Bar, Line, Pie} from 'react-chartjs-2'
+import Budget from '../components/dashboard/Budget'
+
+// let totalExpenses = this.state.chartData.data[0]+this.state.chartData.data[1]+this.state.chartData.data[2]+this.state.chartData.data[3]+this.state.chartData.data[4]+this.state.chartData.data[5]+this.state.chartData.data[6]
+
+let totalExpenses = 1200 + 200 + 200 + 250 + 500 + 300 + 20
 
 class Chart extends Component{
     constructor(){
@@ -11,12 +16,13 @@ class Chart extends Component{
                     {
                         label: 'Amounts',
                         data: [
-                            617594,
-                            181045,
-                            153060,
-                            106519,
-                            105162,
-                            95072
+                            1200,
+                            200,
+                            200,
+                            250,
+                            500,
+                            300,
+                            20
                         ],
                         backgroundColor:[
                             'springgreen',
@@ -33,6 +39,9 @@ class Chart extends Component{
         }
     }
 
+
+
+
 static defaultProps = {
     displayTitle:true,
     displayLegend: true,
@@ -42,25 +51,35 @@ static defaultProps = {
     render(){
         return (
             <div className="chart">
+                
                 <Bar
+                
                 data={this.state.chartData}
                 // width={100}
                 // height={50}
                 options={{
-title:{
-    display:this.props.displayTitle,
-    text:'Largest Cities In Massachusetts',
-    fontSize:25
-    },
-    legend:{
-        display:this.props.displayLegend,
-        position:this.props.legendPosition
-    }
+            title:{
+                display:this.props.displayTitle,
+                text:'Visual Expense Report',
+                fontSize:20
+            },
+            legend:{
+                display:this.props.displayLegend,
+                position:this.props.legendPosition
+        }
                 }}
             />
+            <p style={{
+                color: 'red',
+                fontSize:20
+            }}>Total Expenses: <p style={{
+                fontSize:18,
+                color:'yellow'
+            }}> $ {totalExpenses}</p></p>
             </div>
         )
     }
 }
+
 
 export default Chart;
