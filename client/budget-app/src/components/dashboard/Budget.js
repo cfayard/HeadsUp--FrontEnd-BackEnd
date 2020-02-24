@@ -263,7 +263,7 @@ const Budget = props => {
                      
                 </Modal>
 
-                
+
             </div>
             
         )
