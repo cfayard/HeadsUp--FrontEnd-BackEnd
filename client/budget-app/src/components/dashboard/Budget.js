@@ -10,6 +10,7 @@ import {
   } from "../../actions/accountActions";
   import { logoutUser } from "../../actions/authActions";
 
+  import {Bar, Line, Pie} from 'react-chartjs-2'
 
 import Visual from '../dashboard/Visual'
 
@@ -43,7 +44,7 @@ const Budget = props => {
     const [totalEmergency, setTotalEmergency] = useState(0)
     const [totalGas, setTotalGas] = useState(0)
 
-    const [budgetCalc, setBudgetCalc] = useState([])
+  
 
        
         return (
@@ -71,11 +72,12 @@ const Budget = props => {
                 {/* <button style={{color:'black', marginLeft:10,marginRight:10}}className="btn btn-large waves-effect waves-light hoverable green accent-3 main-btn" onClick={()=> setOpen(!open)}>
                     Dashboard
                 </button> */}
-                <a href='/Register'>
-                    
-                <button style={{color:'springgreen', marginLeft:10,marginRight:10}}>
+                
+                  <a href={'/'}>
+                <button onClick={()=>props.logoutUser()} style={{color:'springgreen', marginLeft:10,marginRight:10}}>
                     Logout
-                </button></a>
+                </button>
+                </a>  
 
 
 
@@ -84,7 +86,9 @@ const Budget = props => {
                 open={open} 
                 >
                     
-                    <div style={{width:600,height:500, backgroundColor:'black'}}>
+                    <div style={{width:700,height:650, backgroundColor:'black'}}>
+                        <div style={{width:'100%', height:'100%', display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
+                        <div style={{width:'30%'}}>
                         <div onClick={()=>setOpen(!open)}>X</div>
                         <InputLabel style={{
                             color: "springgreen"
@@ -186,6 +190,42 @@ const Budget = props => {
                         <br />
                     </div>
                     
+                   <div style={{width:'70%',paddingTop:'100px'}}>
+                    <Pie 
+                   
+                    data={{
+                        labels: ['Bills', 'Expenses', 'Savings', 'Gas', 'Leisure','Grocery', 'Emergency','Remaining'],
+                        datasets:[
+                            {
+                                label: 'Amounts',
+                                data: [
+                                    totalBill,
+                                    totalExpense,
+                                    totalSavings,
+                                    totalGas,
+                                    totalLeisure,
+                                    totalFood,
+                                    totalEmergency,
+                                    (totalIncome-totalBill-totalExpense-totalSavings-totalLeisure-totalFood-totalEmergency-totalGas),
+                                ],
+                                backgroundColor:[
+                                    'springgreen',
+                                    'green',
+                                    'darkgreen',
+                                    'chartruese',
+                                    'lightgreen',
+                                    'aqua',
+                                    'blue',
+                                    'red'
+                                ]
+                            }
+                        ]
+                    }}
+                    />
+                    </div>
+                    </div>
+                    </div>
+                
                     
                      
                 </Modal>
