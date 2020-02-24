@@ -230,7 +230,7 @@ const Budget = props => {
                        labels: ['Bills', 'Expenses', 'Savings', 'Gas', 'Leisure','Grocery', 'Emergency'],
                        datasets:[
                            {
-                               label: 'Percents',
+                               label: '',
                                data: [
                                    (totalBill/totalIncome)*0.10,
                                    (totalExpense/totalIncome)*0.10,
