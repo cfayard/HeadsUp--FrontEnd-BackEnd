@@ -27,7 +27,7 @@ class Navbar extends Component {
                 color: "springgreen"
               }}
               >
-                Head's Up</header>
+                Heads Up</header>
               
 
             </Link>

@@ -3,16 +3,14 @@ import Modal from '@material-ui/core/Modal';
 import { Input, InputLabel } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { connect } from "react-redux";
+
 import {
     getTransactions,
-  
   } from "../../actions/accountActions";
-  import { logoutUser } from "../../actions/authActions";
+  
+import { logoutUser } from "../../actions/authActions";
 
-  import {Bar, Pie} from 'react-chartjs-2'
-
-
-
+import {Bar, Pie} from 'react-chartjs-2'
 
 const useStyles = makeStyles(theme => ({
     modal: {
@@ -30,6 +28,7 @@ const useStyles = makeStyles(theme => ({
       padding: theme.spacing(2, 4, 3),
     },
   }));
+
 const Budget = props => {
     const classes = useStyles();
     const [open, setOpen] = useState(false);
@@ -41,8 +40,6 @@ const Budget = props => {
     const [totalFood, setTotalFood] = useState(0)
     const [totalEmergency, setTotalEmergency] = useState(0)
     const [totalGas, setTotalGas] = useState(0)
-
-  
 
        
         return (
@@ -76,8 +73,6 @@ const Budget = props => {
                     Logout
                 </button>
                 </a>  
-
-
 
                 <Modal 
                 className={classes.modal}     
