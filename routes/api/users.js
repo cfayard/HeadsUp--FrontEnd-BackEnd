@@ -6,11 +6,11 @@ const keys = require("../../config/keys");
 const passport = require("passport");
 
 // Load input validation
-const validateRegisterInput = require("../../../validation/register");
-const validateLoginInput = require("../../../validation/login");
+const validateRegisterInput = require("../../back-end/validation/register");
+const validateLoginInput = require("../../back-end/validation/login");
 
 // Load User model
-const User = require("../../models/User");
+const User = require("../../back-end/models/User");
 
 // @route POST api/users/register
 // @desc Register user
